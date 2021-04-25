@@ -1,0 +1,57 @@
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+
+  <title>Maratona Python - Results</title>
+  <meta name="description" content="Result of query">
+  <meta name="author" content="Paulo Huertas">
+
+  <link rel="stylesheet" href="https://repl.it/@paulohuertas/HospitableBackLoopfission#templates/reset.css">
+
+  <style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+</head>
+
+<body>
+  <form action='/index' method='GET'>
+  <button>Home</button>
+  </form>
+  <center>
+    <h1>Search results</h1>
+   <p> Voce buscou por {{keyword}}</p>
+   <p> Total de vagas {{all_results}}
+    <table>
+      <tr>
+        <th>Job Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Posted</th>
+        <th>Link to apply</th>
+      </th>
+   {% for job in jobs %}
+    <tr>
+      <td>{{job.title}}</td>
+      <td>{{job.company}}</td>
+      <td>{{job.location}}</td>
+      <td>{{job.job_date}}</td>
+      <td>
+        <a href="{{job.link}}" target="_blank">Aplicar para vaga</a>
+      </td>
+    </tr>
+   {% endfor%}
+    </table>
+  </center>
+</body>
+</html>
